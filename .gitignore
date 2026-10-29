@@ -1,0 +1,12 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Power BI
+*.pbix
+
+# Inne
+temp.txt
+.env
+.DS_Store
