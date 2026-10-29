@@ -20,7 +20,9 @@ df_gold = (
     .withWatermark("timestamp","1 minute")
     .groupBy(
         window("timestamp", "1 minute"),
-        col("state")
+        col("state"),
+        col("category"),
+        col("delivery_status")
     )
     .agg(
         round(sum("total_amount"), 2).alias("total_sales"),
@@ -30,8 +32,10 @@ df_gold = (
         col("window.start").alias("window_start"),
         col("window.end").alias("window_end"),
         col("state"),
+        col("category"),
+        col("delivery_status"),
         col("total_sales"),
-        col("total_items"),
+        col("total_items")
     )
 )
 
